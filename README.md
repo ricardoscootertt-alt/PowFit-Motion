@@ -1,4 +1,4 @@
-<html lang="pt-PT">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -81,14 +81,14 @@
     <!-- Notificações Toast -->
     <div id="toast-container" class="fixed top-20 left-1/2 transform -translate-x-1/2 z-[100] flex flex-col gap-2 pointer-events-none w-11/12 max-w-md"></div>
 
-    <!-- ECRÃ DE LOGIN (Fixado) -->
+    <!-- TELA DE LOGIN (Fixado) -->
     <div id="login-screen" class="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-darkblue px-6 fade-in">
         <div class="mb-8 text-center">
             <div class="w-24 h-24 bg-panel rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-primary shadow-[0_0_15px_rgba(59,130,246,0.5)]">
                 <i class="fas fa-dumbbell text-4xl text-primary"></i>
             </div>
             <h1 class="text-3xl font-bold text-white tracking-wide">PowFit<span class="text-primary">Motion</span></h1>
-            <p class="text-gray-400 mt-2 text-sm">Os seus treinos e evoluções sempre consigo.</p>
+            <p class="text-gray-400 mt-2 text-sm">Seus treinos e evoluções sempre com você.</p>
         </div>
         
         <button id="btn-google-login" class="flex items-center gap-3 bg-white text-gray-800 px-6 py-3 rounded-full font-semibold shadow-lg hover:bg-gray-100 transition-all active:scale-95 w-full max-w-sm justify-center">
@@ -108,7 +108,7 @@
                 <h1 class="font-bold text-xl tracking-wide">PowFit<span class="text-primary">Motion</span></h1>
             </div>
             <div class="flex items-center gap-3">
-                <img id="user-avatar" src="" alt="Utilizador" class="w-9 h-9 rounded-full border border-primary object-cover hidden">
+                <img id="user-avatar" src="" alt="Usuário" class="w-9 h-9 rounded-full border border-primary object-cover hidden">
                 <button id="btn-logout" class="text-gray-400 hover:text-red-400 p-2 transition-colors">
                     <i class="fas fa-sign-out-alt text-lg"></i>
                 </button>
@@ -118,7 +118,7 @@
         <!-- CONTEÚDO SCROLLÁVEL -->
         <main id="app-content" class="w-full max-w-3xl mx-auto pt-20 pb-10 px-4">
             
-            <!-- VISTA: Categorias & Pesquisa -->
+            <!-- VIEW: Categorias & Pesquisa -->
             <div id="view-categories" class="slide-up">
                 
                 <!-- Barra de Pesquisa Global -->
@@ -126,7 +126,7 @@
                     <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                         <i class="fas fa-search text-gray-500"></i>
                     </div>
-                    <input type="text" id="global-search-input" class="w-full bg-panel border border-gray-700 rounded-xl py-3 pl-10 pr-4 text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition shadow-inner" placeholder="Procurar exercício pelo nome...">
+                    <input type="text" id="global-search-input" class="w-full bg-panel border border-gray-700 rounded-xl py-3 pl-10 pr-4 text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition shadow-inner" placeholder="Buscar exercício por nome...">
                     <button id="btn-clear-search" class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-500 hover:text-white hidden">
                         <i class="fas fa-times"></i>
                     </button>
@@ -134,13 +134,13 @@
 
                 <!-- Resultados da Pesquisa -->
                 <div id="search-results-container" class="hidden mb-6">
-                    <h2 class="text-lg font-semibold mb-3 border-l-4 border-accent pl-2 text-accent">Resultados da Pesquisa</h2>
+                    <h2 class="text-lg font-semibold mb-3 border-l-4 border-accent pl-2 text-accent">Resultados da Busca</h2>
                     <div id="search-results-list" class="flex flex-col gap-3">
                         <!-- Gerado via JS -->
                     </div>
                 </div>
 
-                <!-- Contentor Principal de Categorias -->
+                <!-- Container Principal de Categorias -->
                 <div id="categories-container">
                     <h2 class="text-xl font-semibold mb-4 border-l-4 border-primary pl-2">Categorias</h2>
                     <div id="categories-grid" class="grid grid-cols-2 gap-4 sm:grid-cols-3">
@@ -149,7 +149,7 @@
                 </div>
             </div>
 
-            <!-- VISTA: Lista de Exercícios -->
+            <!-- VIEW: Lista de Exercícios -->
             <div id="view-exercises" class="hidden slide-up flex-col mt-2">
                 <div class="flex items-center justify-between mb-4 pb-2 border-b border-gray-800">
                     <button id="btn-back-categories" class="text-gray-400 hover:text-white py-2 flex items-center gap-2 transition">
@@ -194,21 +194,21 @@
                 <div id="media-container" class="w-full aspect-square bg-darkblue rounded-xl flex items-center justify-center overflow-hidden border border-gray-800 mb-4 relative group">
                     <div id="media-placeholder" class="text-center text-gray-500 flex flex-col items-center p-4">
                         <i class="fas fa-image text-5xl mb-2 opacity-50"></i>
-                        <p class="text-sm mt-2">Nenhuma imagem/GIF associada.</p>
+                        <p class="text-sm mt-2">Nenhuma imagem/GIF adicionada.</p>
                     </div>
                     
                     <!-- Imagem Mostrada -->
                     <img id="exercise-media-img" src="" alt="Exercício" class="hidden w-full h-full object-contain">
                     
-                    <!-- Botão de Editar Sobreposto à imagem (visível apenas quando há imagem salva) -->
+                    <!-- Botão de Editar Sobreposto (visível apenas quando há imagem salva) -->
                     <button id="btn-edit-media" class="absolute top-3 right-3 bg-black/60 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-black/80 transition hidden shadow-lg border border-white/20 active:scale-95">
                         <i class="fas fa-pen"></i>
                     </button>
 
-                    <!-- Ecrã de Carregamento (Loading) -->
-                    <div id="media-loading" class="absolute inset-0 bg-black/70 hidden flex-col items-center justify-center backdrop-blur-sm z-10">
+                    <!-- Tela de Carregamento (Sem Storage, direto pro Firestore) -->
+                    <div id="media-loading" class="absolute inset-0 bg-black/80 hidden flex-col items-center justify-center backdrop-blur-md z-10">
                         <div class="loader mb-3"></div>
-                        <span id="media-loading-text" class="text-sm font-medium text-white text-center px-4">A processar ficheiro...</span>
+                        <span id="media-loading-text" class="text-sm font-medium text-white text-center px-4">Salvando no Banco de Dados...</span>
                     </div>
                 </div>
 
@@ -265,12 +265,11 @@
         </div>
     </div>
 
-    <!-- Firebase SDK Imports -->
+    <!-- Firebase SDK Imports (Sem Storage) -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
         import { getFirestore, collection, doc, setDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-        import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-storage.js";
 
         // ==========================================
         // DADOS PADRÃO
@@ -364,7 +363,6 @@
         const appFirebase = initializeApp(fbConfig);
         const auth = getAuth(appFirebase);
         const db = getFirestore(appFirebase);
-        const storage = getStorage(appFirebase); 
         const systemAppId = typeof __app_id !== 'undefined' ? __app_id : 'powfit-motion';
 
         // ==========================================
@@ -380,10 +378,10 @@
         let activeExerciseName = '';
         let modalActiveCategoryContext = ''; 
         
-        let pendingMediaFile = null; // Guarda o ficheiro para salvar depois
+        let pendingMediaFile = null; 
 
         // ==========================================
-        // UTILITÁRIOS & COMPRESSÃO
+        // UTILITÁRIOS & COMPRESSÃO PARA FIRESTORE (BASE64)
         // ==========================================
         function createSlug(text) {
             return text.toString().toLowerCase()
@@ -399,7 +397,7 @@
             const toast = document.createElement('div');
             
             const colors = { success: 'bg-green-600', error: 'bg-red-600', info: 'bg-blue-600', warning: 'bg-yellow-600' };
-            const icons = { success: 'fa-check-circle', error: 'fa-exclamation-circle', info: 'fa-info-circle', warning: 'fa-cloud-upload-alt' };
+            const icons = { success: 'fa-check-circle', error: 'fa-exclamation-circle', info: 'fa-info-circle', warning: 'fa-exclamation-triangle' };
 
             toast.className = `${colors[type]} text-white px-4 py-3 rounded-lg shadow-lg flex items-center gap-3 slide-up text-sm font-medium w-full`;
             toast.innerHTML = `<i class="fas ${icons[type]} text-lg"></i> <span>${message}</span>`;
@@ -431,7 +429,18 @@
             return allExs;
         }
 
-        function compressImage(file, maxDimension = 1200, quality = 0.85) {
+        // Lê arquivo direto para Base64 (para arquivos pequenos)
+        function fileToBase64(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onload = () => resolve(reader.result);
+                reader.onerror = error => reject(error);
+            });
+        }
+
+        // Comprime arquivo e retorna Base64 (para arquivos grandes caberem no Firestore)
+        function compressToBase64(file, maxDimension = 800, quality = 0.7) {
             return new Promise((resolve, reject) => {
                 const reader = new FileReader();
                 reader.readAsDataURL(file);
@@ -455,14 +464,13 @@
                         canvas.height = height;
                         const ctx = canvas.getContext('2d');
                         ctx.drawImage(img, 0, 0, width, height);
-                        canvas.toBlob((blob) => {
-                            if (blob) resolve(blob);
-                            else resolve(file);
-                        }, 'image/jpeg', quality);
+                        
+                        // Retorna como JPEG reduzido
+                        resolve(canvas.toDataURL('image/jpeg', quality));
                     };
-                    img.onerror = () => resolve(file);
+                    img.onerror = () => resolve(event.target.result); //Fallback
                 };
-                reader.onerror = () => resolve(file);
+                reader.onerror = () => reject(reader.error);
             });
         }
 
@@ -494,7 +502,6 @@
             mediaInput: document.getElementById('media-upload'),
             btnTriggerUpload: document.getElementById('btn-trigger-upload'),
             
-            // Novos elementos de ação
             previewActions: document.getElementById('preview-actions'),
             btnSaveMedia: document.getElementById('btn-save-media'),
             btnCancelMedia: document.getElementById('btn-cancel-media'),
@@ -670,7 +677,7 @@
                         </div>
                         <div class="flex flex-col truncate">
                            <span class="font-semibold text-[15px] sm:text-base text-gray-100 truncate">${ex.name}</span>
-                           ${ex.isCustom ? `<span class="text-[11px] text-accent mt-0.5">Criado por si</span>` : ''}
+                           ${ex.isCustom ? `<span class="text-[11px] text-accent mt-0.5">Criado por você</span>` : ''}
                         </div>
                     </div>
                     <i class="fas fa-chevron-right text-gray-600 text-sm shrink-0 ml-2"></i>
@@ -682,34 +689,28 @@
         }
 
         // ==========================================
-        // MODALS & UPLOAD COM FLUXO SEGURO (Salvar/Cancelar)
+        // MODALS & UPLOAD PARA O FIRESTORE COM BOTÃO DE SALVAR
         // ==========================================
         function setupModalState(hasSavedMedia, mediaUrl = '') {
             if (hasSavedMedia) {
-                // Estado: Tem imagem guardada
                 DOM.mediaPlaceholder.classList.add('hidden');
                 DOM.mediaImg.src = mediaUrl; 
                 DOM.mediaImg.classList.remove('hidden');
                 
-                // Ocultar botão grande de Adicionar, mostrar lápis de edição
                 DOM.btnTriggerUpload.classList.add('hidden');
                 DOM.btnEditMedia.classList.remove('hidden');
             } else {
-                // Estado: Vazio
                 DOM.mediaPlaceholder.classList.remove('hidden');
                 DOM.mediaImg.src = '';
                 DOM.mediaImg.classList.add('hidden');
                 
-                // Mostrar botão grande de Adicionar, esconder lápis
                 DOM.btnTriggerUpload.classList.remove('hidden');
                 DOM.btnEditMedia.classList.add('hidden');
             }
             
-            // Sempre ocultar as ações de Salvar/Cancelar no início
             DOM.previewActions.classList.add('hidden');
             DOM.previewActions.classList.remove('flex');
             
-            // Limpar ficheiro pendente
             pendingMediaFile = null;
             DOM.mediaInput.value = '';
         }
@@ -735,7 +736,6 @@
             DOM.mediaInput.value = '';
         }
 
-        // Botões para acionar o explorador de ficheiros
         DOM.btnTriggerUpload.onclick = () => DOM.mediaInput.click();
         DOM.btnEditMedia.onclick = () => DOM.mediaInput.click();
 
@@ -743,7 +743,6 @@
             const file = e.target.files[0];
             if (!file) return;
 
-            // 1. Guardar em memória e mostrar pré-visualização
             pendingMediaFile = file;
             const localFileUrl = URL.createObjectURL(file);
             
@@ -751,15 +750,13 @@
             DOM.mediaImg.src = localFileUrl;
             DOM.mediaImg.classList.remove('hidden');
             
-            // 2. Mudar botões para "Salvar / Cancelar"
             DOM.btnTriggerUpload.classList.add('hidden');
-            DOM.btnEditMedia.classList.add('hidden'); // Oculta o lápis enquanto edita
+            DOM.btnEditMedia.classList.add('hidden'); 
             DOM.previewActions.classList.remove('hidden');
             DOM.previewActions.classList.add('flex');
         };
 
         DOM.btnCancelMedia.onclick = () => {
-            // Cancelou. Restaura o estado anterior.
             const data = customExercisesData[activeExerciseSlug];
             setupModalState(!!(data && data.media), data?.media || '');
         };
@@ -769,40 +766,47 @@
 
             DOM.mediaLoading.classList.remove('hidden');
             DOM.mediaLoading.style.display = 'flex';
-            DOM.mediaLoadingText.innerHTML = "A enviar para a nuvem...<br><span class='text-xs text-gray-300 font-normal'>A guardar no seu perfil.</span>";
+            DOM.mediaLoadingText.innerHTML = "Otimizando arquivo...<br><span class='text-xs text-gray-300 font-normal'>Salvando no Banco de Dados...</span>";
 
             try {
-                let fileToUpload = pendingMediaFile;
+                let base64Data;
+                const MAX_SIZE = 700 * 1024; // 700KB limite seguro do Firestore
 
-                // Comprimir apenas se for imagem pesada (não GIF)
-                if (fileToUpload.type.startsWith('image/') && fileToUpload.type !== 'image/gif' && fileToUpload.size > 500 * 1024) {
-                    fileToUpload = await compressImage(fileToUpload, 1200, 0.85);
+                // Se o arquivo for maior que 700KB, comprimimos para texto base64 reduzido
+                if (pendingMediaFile.size > MAX_SIZE) {
+                    if (pendingMediaFile.type === 'image/gif') {
+                        showToast("Aviso: Como você não usa Storage, GIFs muito grandes são convertidos em imagem estática para caber no banco de dados.", "warning", 6000);
+                        base64Data = await compressToBase64(pendingMediaFile, 800, 0.7); // Vira JPEG estático
+                    } else {
+                        base64Data = await compressToBase64(pendingMediaFile, 800, 0.7);
+                    }
+                } else {
+                    // Arquivos pequenos vão direto (mantém o GIF animado se for pequeno)
+                    base64Data = await fileToBase64(pendingMediaFile);
                 }
 
-                // Upload para Storage
-                const fileRef = ref(storage, `artifacts/${systemAppId}/users/${currentUser.uid}/exercises/${activeExerciseSlug}`);
-                const snapshot = await uploadBytes(fileRef, fileToUpload);
-                const downloadURL = await getDownloadURL(snapshot.ref);
-
-                // Guardar no Firestore
                 const docRef = doc(db, 'artifacts', systemAppId, 'users', currentUser.uid, 'exercises', activeExerciseSlug);
                 const isCustom = customExercisesData[activeExerciseSlug]?.isCustom || false;
                 
                 await setDoc(docRef, {
                     name: activeExerciseName,
                     category: modalActiveCategoryContext,
-                    media: downloadURL, 
+                    media: base64Data, // Salva o texto Base64 em vez da URL do Storage
                     isCustom: isCustom
                 }, { merge: true });
                 
-                showToast("Imagem guardada permanentemente!", "success");
-                
-                // Concluído. Restaura o estado da modal com a nova imagem salva.
-                setupModalState(true, downloadURL);
+                showToast("Imagem salva com sucesso!", "success");
+                setupModalState(true, base64Data);
 
             } catch (error) {
-                console.error("Erro no Upload:", error);
-                showToast("Erro ao guardar na nuvem. Verifique a internet.", "error");
+                console.error("Erro ao Salvar:", error);
+                
+                // Se der erro de limite excedido mesmo após a compressão
+                if (error.code === 'resource-exhausted' || (error.message && error.message.includes('exceeds the maximum'))) {
+                    showToast("Erro: Imagem ainda é muito grande para o Banco de Dados. Escolha uma foto mais leve.", "error", 5000);
+                } else {
+                    showToast("Erro ao guardar. Verifique sua conexão.", "error");
+                }
             } finally {
                 DOM.mediaLoading.classList.add('hidden');
                 DOM.mediaLoading.style.display = 'none';
