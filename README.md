@@ -306,7 +306,7 @@
         const defaultData = {
             "PEITO": [
                 "Supino Reto", "Supino Inclinado", "Supino Inclinado com Halteres", 
-                "Supino Fechado com Halteres", "Cruxifico no Cross", "Cross Over Alto", 
+                "Supino Fechado com Halteres", "Crucifixo no Cross", "Cross Over Alto", 
                 "Cross Over Baixo", "Crucifixo Reto", "Crucifixo Inclinado com Halteres", 
                 "Crucifixo na Máquina", "Peck Fly", "Peck Fly Unilateral", "Pullover", 
                 "Flexão de Braço", "Flexão com Pés Elevados", "Flexão Explosiva"
