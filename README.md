@@ -265,6 +265,34 @@
         </div>
     </div>
 
+    <!-- MODAL: Segurança para Editar Imagem -->
+    <div id="security-modal" class="fixed inset-0 z-[130] bg-black/80 modal-backdrop hidden flex-col justify-end sm:justify-center items-center transition-opacity">
+        <div class="bg-panel w-full sm:w-[90%] sm:max-w-md rounded-t-2xl sm:rounded-2xl p-5 slide-up border border-gray-800 shadow-2xl">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="font-bold text-lg text-white"><i class="fas fa-shield-alt text-primary mr-2"></i>Segurança</h3>
+                <button id="btn-close-security" class="text-gray-400 hover:text-white p-1 rounded-full hover:bg-gray-800 transition">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <p class="text-sm text-gray-400 mb-4">Para editar uma imagem já salva, por favor confirme sua identidade digitando o e-mail do seu login.</p>
+            
+            <div class="space-y-4">
+                <div>
+                    <input type="email" id="security-email-input" class="w-full bg-darkblue border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition" placeholder="Digite seu e-mail do Google...">
+                </div>
+                
+                <div class="flex gap-3">
+                    <button id="btn-cancel-security" class="flex-1 bg-gray-700 hover:bg-gray-600 text-white py-3 rounded-xl font-semibold transition active:scale-95">
+                        Cancelar
+                    </button>
+                    <button id="btn-confirm-security" class="flex-1 bg-primary hover:bg-primaryHover text-white py-3 rounded-xl font-semibold transition active:scale-95 shadow-lg shadow-primary/20">
+                        Confirmar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Firebase SDK Imports (Sem Storage) -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
@@ -512,7 +540,14 @@
             
             addModal: document.getElementById('add-modal'),
             newExName: document.getElementById('new-exercise-name'),
-            newExCat: document.getElementById('new-exercise-category')
+            newExCat: document.getElementById('new-exercise-category'),
+            
+            // Novos elementos de Segurança
+            securityModal: document.getElementById('security-modal'),
+            securityInput: document.getElementById('security-email-input'),
+            btnConfirmSecurity: document.getElementById('btn-confirm-security'),
+            btnCancelSecurity: document.getElementById('btn-cancel-security'),
+            btnCloseSecurity: document.getElementById('btn-close-security')
         };
 
         function switchView(view) {
@@ -737,7 +772,36 @@
         }
 
         DOM.btnTriggerUpload.onclick = () => DOM.mediaInput.click();
-        DOM.btnEditMedia.onclick = () => DOM.mediaInput.click();
+        
+        // === FLUXO DE SEGURANÇA PARA EDIÇÃO ===
+        DOM.btnEditMedia.onclick = () => {
+            DOM.securityInput.value = ''; // Limpa o campo
+            DOM.securityModal.classList.remove('hidden');
+            DOM.securityModal.classList.add('flex');
+        };
+
+        const closeSecurityModal = () => {
+            DOM.securityModal.classList.add('hidden');
+            DOM.securityModal.classList.remove('flex');
+        };
+
+        DOM.btnCancelSecurity.onclick = closeSecurityModal;
+        DOM.btnCloseSecurity.onclick = closeSecurityModal;
+
+        DOM.btnConfirmSecurity.onclick = () => {
+            const typedEmail = DOM.securityInput.value.trim().toLowerCase();
+            const actualEmail = currentUser?.email?.toLowerCase();
+
+            if (typedEmail === actualEmail && actualEmail !== undefined) {
+                // E-mail correto! Fecha a modal de segurança e abre a galeria
+                closeSecurityModal();
+                DOM.mediaInput.click();
+            } else {
+                // E-mail incorreto!
+                showToast("E-mail incorreto. Digite o e-mail exato do seu login.", "error");
+            }
+        };
+        // ======================================
 
         DOM.mediaInput.onchange = (e) => {
             const file = e.target.files[0];
