@@ -274,11 +274,12 @@
                     <i class="fas fa-times text-xl"></i>
                 </button>
             </div>
-            <p class="text-sm text-gray-400 mb-4">Para editar uma imagem já salva, por favor confirme sua identidade digitando o e-mail do seu login.</p>
+            <p class="text-sm text-gray-400 mb-4">Para editar uma imagem já salva, por favor confirme sua identidade digitando a sua senha secreta.</p>
             
             <div class="space-y-4">
                 <div>
-                    <input type="email" id="security-email-input" class="w-full bg-darkblue border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition" placeholder="Digite seu e-mail do Google...">
+                    <!-- type mudou para password para esconder os caracteres, mas a senha é o e-mail -->
+                    <input type="password" id="security-email-input" class="w-full bg-darkblue border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition" placeholder="Digite sua senha secreta...">
                 </div>
                 
                 <div class="flex gap-3">
@@ -793,12 +794,12 @@
             const actualEmail = currentUser?.email?.toLowerCase();
 
             if (typedEmail === actualEmail && actualEmail !== undefined) {
-                // E-mail correto! Fecha a modal de segurança e abre a galeria
+                // Senha correta! Fecha a modal de segurança e abre a galeria
                 closeSecurityModal();
                 DOM.mediaInput.click();
             } else {
-                // E-mail incorreto!
-                showToast("E-mail incorreto. Digite o e-mail exato do seu login.", "error");
+                // Senha incorreta!
+                showToast("Senha secreta incorreta.", "error");
             }
         };
         // ======================================
