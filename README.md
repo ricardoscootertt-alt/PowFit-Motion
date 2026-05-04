@@ -344,8 +344,7 @@
                 "Elevação Lateral Unilateral Cross", "Elevação Lateral Sentado", 
                 "Desenvolvimento com Halteres", "Desenvolvimento com Barra", "Arnold Press", 
                 "Elevação Borboleta", "Crucifixo Inverso Sentado com Halteres", 
-                "Crucifixo Inverso na Polia", "Crucifixo Inverso Unilateral na Polia", 
-                "Facepull (puxada reta)", "Remada Alta", "Encolhimento (Trapézio)"
+                "Crucifixo Inverso na Polia", "Crucifixo Inverso Unilateral na Polia", "Remada Alta", "Encolhimento (Trapézio)"
             ],
             "ABDÔMEN": [
                 "Infra com Elevação de Perna", "Abdominal Supra", "Abdominal Remador", 
